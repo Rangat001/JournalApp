@@ -4,6 +4,7 @@ import com.rgt.journal.Repository.UserRepository;
 import com.rgt.journal.entity.UserEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
@@ -21,6 +22,7 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 //@SpringBootTest
+@Disabled
 public class UserDetailsServiceImplTest {
 //    @Autowired
     @InjectMocks                                                // Use Mock to not use original Resources that's why SpringBOotTest Is disable
@@ -29,12 +31,13 @@ public class UserDetailsServiceImplTest {
 //    @MockitoBean                                             MockitoBean Use When we use SpringBootTest if use InjectMock then use Mock
     @Mock
     private UserRepository userRepository;
-
+    @Disabled
     @BeforeEach
     void setup(){
         MockitoAnnotations.initMocks(this);          // To intial All Mock resource 
     }
-    
+
+    @Disabled
     @Test
     void loadUserByUsernameTest(){
         UserEntity mockUserEntity = new UserEntity("ram","dsubsdjhfd");

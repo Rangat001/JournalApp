@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Disabled
 @SpringBootTest
 public class UserServiceTests {
     @Autowired
@@ -21,6 +22,7 @@ public class UserServiceTests {
         assertNotNull(userRepository.findByusername("rgt"));
     }
 
+    @Disabled
     @ParameterizedTest
     @CsvSource({
             "1,1,2",

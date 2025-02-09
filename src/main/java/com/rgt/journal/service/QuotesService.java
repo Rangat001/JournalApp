@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
 
 
-@Component
+@Service
 public class QuotesService {
     private static final String api_key = "ZG0iRIYz8xM+wCz5ue/9pw==gcXB0RIBDBOERpCO";
 

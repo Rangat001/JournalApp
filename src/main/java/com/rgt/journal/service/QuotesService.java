@@ -2,7 +2,9 @@ package com.rgt.journal.service;
 
 
 import com.rgt.journal.apiResponse.QuotesResponse;
+import com.rgt.journal.apiResponse.cache.AppCache;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
@@ -15,12 +17,16 @@ import java.util.Map;
 
 @Service
 public class QuotesService {
-    private static final String api_key = "ZG0iRIYz8xM+wCz5ue/9pw==gcXB0RIBDBOERpCO";
+    @Value("${Quotes.api.key}")
+    private String api_key;
 
-    private static final String api = "https://api.api-ninjas.com/v1/quotes";
+//    private static final String api = "https://api.api-ninjas.com/v1/quotes";
 
     @Autowired
     private RestTemplate restTemplate;
+
+    @Autowired
+    private AppCache appCache;
 
 
     public QuotesResponse getQuote() {
@@ -33,7 +39,7 @@ public class QuotesService {
 
         // Make the API call
         ResponseEntity<QuotesResponse[]> response = restTemplate.exchange(
-                api,
+                appCache.AppCache.get("Quote_api"),
                 HttpMethod.GET,
                 entity,
                 QuotesResponse[].class

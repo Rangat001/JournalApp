@@ -1,3 +1,8 @@
 spring:
   profiles:
     active: dev
+
+Quotes:
+  api:
+    key: "ZG0iRIYz8xM+wCz5ue/9pw==gcXB0RIBDBOERpCO"
+

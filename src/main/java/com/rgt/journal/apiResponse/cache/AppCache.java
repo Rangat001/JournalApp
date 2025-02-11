@@ -14,6 +14,7 @@ import java.util.Map;
 @Component
 public class AppCache {
 
+    Strinng Test;
     @Autowired
     private Config_jounalApp_Repository configJounalAppRepository;
 

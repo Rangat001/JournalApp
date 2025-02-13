@@ -1,6 +1,7 @@
 package com.rgt.journal.controller;
 
 import com.rgt.journal.Repository.UserRepository;
+import com.rgt.journal.apiResponse.cache.AppCache;
 import com.rgt.journal.entity.UserEntity;
 import com.rgt.journal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,9 @@ public class AdminController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private AppCache appCache;
 
     private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
@@ -50,5 +54,10 @@ public class AdminController {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @GetMapping("clear-app-cache")
+    public void clearAppCache(){
+        appCache.init();
     }
 }

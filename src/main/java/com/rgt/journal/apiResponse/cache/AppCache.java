@@ -14,14 +14,17 @@ import java.util.Map;
 @Component
 public class AppCache {
 
-    Strinng Test;
+    public enum  keys{
+        QOUTE_API;
+    }
     @Autowired
     private Config_jounalApp_Repository configJounalAppRepository;
 
-    public Map<String,String> AppCache = new HashMap<>();
+    public Map<String,String> AppCache;
 
     @PostConstruct
     public void init(){
+        AppCache = new HashMap<>();
         List<ConfigJournalAppEntity> all =  configJounalAppRepository.findAll();
         for(ConfigJournalAppEntity configJournalAppEntity:all) {
             AppCache.put(configJournalAppEntity.getKey(), configJournalAppEntity.getValue());

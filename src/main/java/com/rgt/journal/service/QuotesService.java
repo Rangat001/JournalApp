@@ -39,7 +39,7 @@ public class QuotesService {
 
         // Make the API call
         ResponseEntity<QuotesResponse[]> response = restTemplate.exchange(
-                appCache.AppCache.get("Quote_api"),
+                appCache.AppCache.get(AppCache.keys.QOUTE_API.toString()),
                 HttpMethod.GET,
                 entity,
                 QuotesResponse[].class
